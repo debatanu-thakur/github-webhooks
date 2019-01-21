@@ -16,7 +16,6 @@ module.exports = {
     },
     env_production: {
       NODE_ENV: 'production',
-      SECRET: process.env.WEBHOOK_SECRET
     }
   }],
 
@@ -28,7 +27,7 @@ module.exports = {
       ssh_options: `StrictHostKeyChecking=no`,
       repo : process.env.REPO,
       path : `${process.env.DEST_PATH}${process.env.PART_PATH}`,
-      'post-deploy' : `npm install && pm2 reload ecosystem.config.js --env production`
+      'post-deploy' : `npm install && SECRET=${process.env.WEBHOOK_SECRET} pm2 reload ecosystem.config.js --env production`
     }
   }
 };
