@@ -16,6 +16,7 @@ module.exports = {
     },
     env_production: {
       NODE_ENV: 'production',
+      SECRET: process.env.SECRET
     }
   }],
 
