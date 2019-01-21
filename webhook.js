@@ -14,7 +14,7 @@ handler.on('error', function (err) {
 })
 
 handler.on('push', function (event) {
-  console.log('%s Push===%s %s to %s',
+  console.log('%s Push=== %s === %s to %s',
     event.payload.head_commit.timestamp,
     event.payload.head_commit.message,
     event.payload.repository.name,
