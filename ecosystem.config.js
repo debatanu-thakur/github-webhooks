@@ -1,3 +1,4 @@
+require('dotenv').config()
 module.exports = {
   apps : [{
     name: 'Webhooks',
@@ -20,5 +21,14 @@ module.exports = {
   }],
 
   deploy : {
+    production : {
+      user : process.env.HOST_USER,
+      host : process.env.HOST,
+      ref  : 'origin/master',
+      ssh_options: `StrictHostKeyChecking=no`,
+      repo : process.env.REPO,
+      path : `${process.env.DEST_PATH}${process.env.PART_PATH}`,
+      'post-deploy' : `npm install && pm2 reload ecosystem.config.js --env production`
+    }
   }
 };

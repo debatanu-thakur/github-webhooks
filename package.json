@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/debatanu-thakur/github-webhooks#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "github-webhook-handler": "^0.7.1"
   }
 }
